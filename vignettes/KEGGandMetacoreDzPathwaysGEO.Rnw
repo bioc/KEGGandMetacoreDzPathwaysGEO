@@ -1,0 +1,66 @@
+%\VignetteIndexEntry{KEGGandMetacoreDzPathwaysGEO Vignette}
+%\VignetteKeyword{GEO}
+%\VignetteKeyword{KEGG}
+%\VignetteKeyword{METACORE}
+%\VignetteKeyword{Disease Pathway}
+%\VignettePackage{edgeR}
+\documentclass[12pt]{article}
+
+\textwidth=6.2in
+\textheight=8.5in
+\oddsidemargin=0.2in
+\evensidemargin=0.2in
+\headheight=0in
+\headsep=0in
+
+\begin{document}
+
+\title{KEGGandMetacoreDzPathwaysGEO : Disease Datasets from GEO}
+\author{Gaurav Bhatti}
+\date{17 April 2014}
+\maketitle
+
+%-----------
+\section{Overview of KEGGandMetacoreDzPathwaysGEO data package}\label{sec:overview}
+\emph{KEGGandMetacoreDzPathwaysGEO} is a collection of 18 GEO datasets for which the phenotype is a disease with a 
+corresponding pathway in either of the two popular gene to pathway annotation databases, KEGG and Metacore. These 
+datasets were used as gold standard in comparing gene set analysis methods \cite{Tarca2013}.Details about the 
+individual datasets including sample tissue, target disease pathway, etc may be obtained by typing: 
+\begin{Schunk}
+\begin{Sinput}
+> ?KEGGandMetacoreDzPathwaysGEO
+\end{Sinput}
+\end{Schunk}
+at the R prompt.In order to access all the datasets available in the package, type the following:
+\begin{Schunk}
+\begin{Sinput}
+> mysets=data(package="KEGGandMetacoreDzPathwaysGEO")$results[,"Item"]
+> mysets
+\end{Sinput}
+\end{Schunk}
+
+The microarray data from the GEO database along with the associated metadata is stored as ExpressionSet class. "The 
+ExpressionSet class is designed to combine several different sources of information into a single convenient structure.
+An ExpressionSet can be manipulated (e.g., subsetted, copied) conveniently, and is the input or output from many 
+Bioconductor functions." \cite{Falcon2007}.An example dataset is shown below: 
+<<>>=
+library(KEGGandMetacoreDzPathwaysGEO)
+data(GSE1145)
+show(GSE1145)
+@
+
+A similar data package, \emph{KEGGDzPathwaysGEO}, is already available for installation in Bioconductor.It contains additional 24 
+GEO datasets for which the phenotype is a disease with a corresponding pathway in the KEGG database.These datasets were used to test
+the performance of an in-house pathway analysis method which has also been implemented as a Bioconductor package, \emph{PADOG} \cite{Tarca2012}.
+
+These datasets may be used to compare existing gene set pathway analysis methods or to test the performance of novel methods.
+
+%-----------
+\begin{thebibliography}{00}
+\bibitem{Tarca2013} Tarca, A. L. et al. (2013) A Comparison of Gene Set Analysis Methods in Terms of Sensitivity, Prioritization and Specificity. PLoS ONE 8(11): e79217.doi:10.1371/journal.pone.0079217
+\bibitem{Falcon2007} Falcon, S., Morgan, M., and Gentleman, R. (2007), An Introduction to Bioconductor's ExpressionSet Class.
+\bibitem{Tarca2012} Tarca, A. L. et al. (2012). Down-weighting overlapping genes improves gene set analysis. BMC Bioinformatics, 13, 136-2105-13-136. 
+\end{thebibliography}
+%----------
+\end{document}
+
