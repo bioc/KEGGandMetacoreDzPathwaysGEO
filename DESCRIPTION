@@ -1,7 +1,7 @@
 Package: KEGGandMetacoreDzPathwaysGEO
 Type: Package
 Title: Disease Datasets from GEO
-Version: 1.23.0
+Version: 1.24.0
 Date: 2014-04-25
 Author: Gaurav Bhatti
 Maintainer: Gaurav Bhatti <gbhatti@med.wayne.edu>
